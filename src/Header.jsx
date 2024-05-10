@@ -1,19 +1,14 @@
 // Header.jsx
 import React from 'react';
+import './index.css'; // Import your CSS file
 
 function Header() {
   return (
     <header className="head">
       <h1>Shannon</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-          <hr />
-        </ul>
-      </nav>
+      <hr />
+      <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/03/dorohedoro-the-hungry-bug.jpg" alt="Logo" className='bigimage'/> 
+      
     </header>
   );
 }

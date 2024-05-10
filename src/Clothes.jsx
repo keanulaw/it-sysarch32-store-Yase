@@ -1,16 +1,17 @@
-// ClothingList.jsx
+// Clothes.jsx
 
 import React, { useState, useEffect } from 'react';
-import { db } from "../config/firebase-config.js";
 import { collection, getDocs } from "firebase/firestore";
+import { db } from "./config/firebase-config";
+import './index.css'; // Import your CSS file
 
-const Clothes = () => {
+const Clothes = ({ navigateToSecondPage }) => {
     const [apparels, setApparels] = useState([]);
 
     useEffect(() => {
         const fetchApparels = async () => {
             try {
-                const apparelsCollection = collection(db, 'apparels');
+                const apparelsCollection = collection(db, 'clothess');
                 const snapshot = await getDocs(apparelsCollection);
                 const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 setApparels(data);
@@ -24,13 +25,19 @@ const Clothes = () => {
 
     return (
         <div>
-            <h1>Apparels Collection</h1>
-            <div>
+            <h1 className='apparel-h1'>Apparels Collection</h1>
+            <div className="apparels-container" style={{ marginLeft: '10%' }}>
                 {apparels.map(apparel => (
-                    <div key={apparel.id}>
-                        <img src={apparel.image} alt={apparel.name} />
-                        <h2>{apparel.name}</h2>
-                        <p>Price: ${apparel.price}</p>
+                    <div key={apparel.id} className="apparel-card-container">
+                        <div onClick={() => navigateToSecondPage(apparel.id)} className="apparel-link">
+                            <div className="apparel-card">
+                                <img src={apparel.image} alt={apparel.name} className="apparel-image" />
+                                <div className="apparel-details">
+                                    <h2 className="apparel-name">{apparel.name}</h2>
+                                    <p className="apparel-price">Price: ${apparel.cost}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>

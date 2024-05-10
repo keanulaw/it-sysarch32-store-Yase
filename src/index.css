@@ -1,0 +1,50 @@
+/* index.css */
+
+.bigimage {
+  border-radius: 20px; /* Adjust the border-radius to create curved corners */
+  margin-left: 15%; /* Add left margin of 10% */
+}
+
+.apparel-h1 {
+  margin-left: 10%; /* Add left margin */
+}
+
+.apparels-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.apparel-card-container {
+  width: 200px; /* Set your desired width */
+  margin-bottom: 20px; /* Add bottom margin */
+}
+
+.apparel-card {
+  padding: 10px;
+  border-radius: 8px; /* Add border-radius for rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.apparel-image {
+  width: 100%; /* Make the image fit the card width */
+  border-radius: 8px; /* Ensure image corners match card */
+}
+
+.apparel-details {
+  text-align: center;
+}
+
+.apparel-name {
+  margin-top: 10px; /* Adjust spacing between image and name */
+  margin-bottom: 5px; /* Add margin below the name */
+  color: black; /* Change text color */
+  text-decoration: none; /* Remove underline */
+}
+
+.apparel-price {
+  margin-top: 5px; /* Adjust spacing between name and price */
+  text-align: center; /* Center the price */
+  color: black; /* Change text color */
+  text-decoration: none; /* Remove underline */ 
+}
