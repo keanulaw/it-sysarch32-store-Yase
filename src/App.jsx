@@ -12,6 +12,7 @@ function App() {
   const [page, setPage] = useState('clothes');
   const [selectedApparelId, setSelectedApparelId] = useState(null);
   const [apparels, setApparels] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchApparels = async () => {
@@ -37,6 +38,10 @@ function App() {
     setPage('clothes');
   };
 
+  const addToCart = (apparel) => {
+    setCart([...cart, apparel]);
+  };
+
   // Find the selected apparel from apparels array based on selectedApparelId
   const selectedApparel = apparels.find(apparel => apparel.id === selectedApparelId);
 
@@ -46,8 +51,8 @@ function App() {
         <SecondPage selectedApparel={selectedApparel} />
       ) : (
         <>
-          <Header />
-          <Clothes navigateToSecondPage={navigateToSecondPage} />
+          <Header cart={cart} />
+          <Clothes navigateToSecondPage={navigateToSecondPage} addToCart={addToCart} />
         </>
       )}
     </>

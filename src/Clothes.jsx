@@ -5,7 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "./config/firebase-config";
 import './index.css'; // Import your CSS file
 
-const Clothes = ({ navigateToSecondPage }) => {
+const Clothes = ({ navigateToSecondPage, addToCart }) => {
     const [apparels, setApparels] = useState([]);
 
     useEffect(() => {
@@ -35,6 +35,7 @@ const Clothes = ({ navigateToSecondPage }) => {
                                 <div className="apparel-details">
                                     <h2 className="apparel-name">{apparel.name}</h2>
                                     <p className="apparel-price">Price: ${apparel.cost}</p>
+                                    <button onClick={() => addToCart(apparel)}>Add to Cart</button>
                                 </div>
                             </div>
                         </div>
