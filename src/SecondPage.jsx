@@ -8,7 +8,7 @@ const SecondPage = ({ selectedApparel, addToCart, cart }) => {
         const stripe = await stripePromise;
 
         // Send a request to the backend to create a checkout session
-        const response = await fetch('http://localhost:4000/create-checkout-session', {
+        const response = await fetch('http://34.27.8.251/create-checkout-session', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
