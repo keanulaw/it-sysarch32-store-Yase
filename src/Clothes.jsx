@@ -1,11 +1,9 @@
-// Clothes.jsx
-
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./config/firebase-config";
 import './index.css'; // Import your CSS file
 
-const Clothes = ({ navigateToSecondPage, addToCart }) => {
+const Clothes = ({ navigateToSecondPage }) => {
     const [apparels, setApparels] = useState([]);
 
     useEffect(() => {
@@ -35,7 +33,7 @@ const Clothes = ({ navigateToSecondPage, addToCart }) => {
                                 <div className="apparel-details">
                                     <h2 className="apparel-name">{apparel.name}</h2>
                                     <p className="apparel-price">Price: ${apparel.cost}</p>
-                                    <button onClick={() => addToCart(apparel)}>Add to Cart</button>
+                                    {/* Removed Add to Cart button */}
                                 </div>
                             </div>
                         </div>

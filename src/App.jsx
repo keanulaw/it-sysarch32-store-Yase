@@ -1,5 +1,3 @@
-// App.jsx
-
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import Clothes from './Clothes.jsx';
@@ -39,7 +37,13 @@ function App() {
   };
 
   const addToCart = (apparel) => {
-    setCart([...cart, apparel]);
+    // Prevent adding duplicates (optional)
+    const isAlreadyInCart = cart.find(item => item.id === apparel.id);
+    if (!isAlreadyInCart) {
+      setCart([...cart, apparel]);
+    } else {
+      console.warn(`${apparel.name} is already in your cart.`);
+    }
   };
 
   // Find the selected apparel from apparels array based on selectedApparelId
@@ -47,12 +51,16 @@ function App() {
 
   return (
     <>
-      {page === 'secondPage' ? (
-        <SecondPage selectedApparel={selectedApparel} />
+      {page === 'secondPage' && selectedApparel ? (
+        <SecondPage
+          selectedApparel={selectedApparel}
+          addToCart={addToCart}
+          cart={cart} // Pass cart to SecondPage for potential display
+        />
       ) : (
         <>
           <Header cart={cart} />
-          <Clothes navigateToSecondPage={navigateToSecondPage} addToCart={addToCart} />
+          <Clothes navigateToSecondPage={navigateToSecondPage} />
         </>
       )}
     </>
